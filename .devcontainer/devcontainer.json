@@ -1,0 +1,68 @@
+{
+	"name": "nodejs-backstage",
+	"image": "mysubsnews/local/nodejs:0.1",
+	"remoteUser": "node",
+	"runArgs": [
+		"--name=nodejs-backstage",
+		"--hostname=nodejs-backstage",
+		"--env-file=${localEnv:SECRET_HOME}/.env",
+		"--network=alpine-net"
+	],
+	"containerEnv": {
+		"GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
+		"ANSIBLE_ENV": "${localEnv:ANSIBLE_ENV}"
+	},
+	"remoteEnv": {
+		"PORT": "3000"
+	},
+	"portsAttributes": {
+		"3000": {
+			"label": "3000-http",
+			"onAutoForward": "notify"
+		},
+		"7007": {
+			"label": "7007-http",
+			"onAutoForward": "notify"
+		}
+	},
+	"forwardPorts": [
+		3000,
+		7007
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"yzhang.markdown-all-in-one",
+				"DavidAnson.vscode-markdownlint",
+				"GitHub.vscode-pull-request-github",
+				"EditorConfig.EditorConfig",
+				"ms-vscode.makefile-tools",
+				"GitLab.gitlab-workflow",
+				"dbaeumer.vscode-eslint",
+				"christian-kohler.npm-intellisense",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples"
+			],
+			"settings": {
+				"python.testing.pytestArgs": [
+					"."
+				],
+				"python.testing.unittestEnabled": false,
+				"python.testing.pytestEnabled": true,
+				"python.defaultInterpreterPath": "${containerEnv:HOME}/.venv/bin/python3",
+				"terminal.integrated.defaultProfile.linux": "bash",
+				"terminal.integrated.defaultProfile.windows": "bash",
+				"terminal.integrated.profiles.windows": {
+					"bash": {
+						"path": "bash",
+						"icon": "terminal-bash"
+					}
+				}
+			}
+		}
+	},
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
+	],
+	"postStartCommand": "bash .devcontainer/post_start_command.sh"
+}
