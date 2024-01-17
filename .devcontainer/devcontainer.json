@@ -1,68 +1,69 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-	"name": "nodejs-backstage",
-	"image": "mysubsnews/local/nodejs:0.1",
-	"remoteUser": "node",
-	"runArgs": [
-		"--name=nodejs-backstage",
-		"--hostname=nodejs-backstage",
-		"--env-file=${localEnv:SECRET_HOME}/.env",
-		"--network=alpine-net"
-	],
-	"containerEnv": {
-		"GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
-		"ANSIBLE_ENV": "${localEnv:ANSIBLE_ENV}"
-	},
-	"remoteEnv": {
-		"PORT": "3000"
-	},
-	"portsAttributes": {
-		"3000": {
-			"label": "3000-http",
-			"onAutoForward": "notify"
-		},
-		"7007": {
-			"label": "7007-http",
-			"onAutoForward": "notify"
-		}
-	},
-	"forwardPorts": [
-		3000,
-		7007
-	],
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"yzhang.markdown-all-in-one",
-				"DavidAnson.vscode-markdownlint",
-				"GitHub.vscode-pull-request-github",
-				"EditorConfig.EditorConfig",
-				"ms-vscode.makefile-tools",
-				"GitLab.gitlab-workflow",
-				"dbaeumer.vscode-eslint",
-				"christian-kohler.npm-intellisense",
-				"VisualStudioExptTeam.vscodeintellicode",
-				"VisualStudioExptTeam.intellicode-api-usage-examples"
-			],
-			"settings": {
-				"python.testing.pytestArgs": [
-					"."
-				],
-				"python.testing.unittestEnabled": false,
-				"python.testing.pytestEnabled": true,
-				"python.defaultInterpreterPath": "${containerEnv:HOME}/.venv/bin/python3",
-				"terminal.integrated.defaultProfile.linux": "bash",
-				"terminal.integrated.defaultProfile.windows": "bash",
-				"terminal.integrated.profiles.windows": {
-					"bash": {
-						"path": "bash",
-						"icon": "terminal-bash"
-					}
-				}
-			}
-		}
-	},
+    "name": "Base Backstage Workspace",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2.3.2": {},
+        "ghcr.io/devcontainers/features/docker-from-docker:1": {},
+        "ghcr.io/devcontainers-contrib/features/mkdocs:2": {}
+    },
+    "runArgs": [
+        "--name=nodejs-backstage",
+        "--hostname=nodejs-backstage",
+        "--env-file=${localEnv:SECRET_HOME}/.env",
+        "--network=alpine-net"
+    ],
+    "portsAttributes": {
+        "3000": {
+            "label": "3000-http",
+            "onAutoForward": "notify"
+        },
+        "7007": {
+            "label": "7007-http",
+            "onAutoForward": "notify"
+        }
+    },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [
+        3000,
+        7007
+    ],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "bash .devcontainer/postCreate.sh",
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.defaultProfile.windows": "bash",
+                "terminal.integrated.profiles.windows": {
+                    "bash": {
+                        "path": "bash",
+                        "icon": "terminal-bash"
+                    }
+                }
+            },
+            "extensions": [
+                "Intility.vscode-backstage",
+                "yzhang.markdown-all-in-one",
+                "DavidAnson.vscode-markdownlint",
+                "GitHub.vscode-pull-request-github",
+                "EditorConfig.EditorConfig",
+                "ms-vscode.makefile-tools",
+                "GitLab.gitlab-workflow",
+                "dbaeumer.vscode-eslint",
+                "christian-kohler.npm-intellisense",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "VisualStudioExptTeam.intellicode-api-usage-examples"
+            ]
+        }
+    },
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
 	"mounts": [
 		"source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
-	],
-	"postStartCommand": "bash .devcontainer/post_start_command.sh"
+	]
 }
