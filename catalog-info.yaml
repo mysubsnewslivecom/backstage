@@ -32,23 +32,23 @@ metadata:
     - js
     - demo
   annotations:
-    github.com/project-slug: RoadieHQ/sample-service
+    # github.com/project-slug: RoadieHQ/sample-service
     # The Sentry organization is stored in the app-config.yaml of the Backstage instance.
-    sentry.io/project-slug: sample-service
-    cloud.google.com/function-ids: projects/roadie-dev-283705/locations/europe-west1/functions/test-fn-1
+    # sentry.io/project-slug: sample-service
+    # cloud.google.com/function-ids: projects/roadie-dev-283705/locations/europe-west1/functions/test-fn-1
     backstage.io/techdocs-ref: dir:.
-    pagerduty.com/service-id: PZDAG59
-    snyk.io/org-id: a0e0775e-2b17-4e57-8d85-6c8fbe5bc9a0
-    backstage.io/kubernetes-id: sample-service
-    travis-ci.com/repo-slug: RoadieHQ/sample-service
-    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/name=sample-service'
-    opsgenie.com/component-selector: sample-service-1
-    qameta.io/allure-project: value
-    newrelic.com/dashboard-guid: 'MzcwMjEwN3xWSVp8REFTSEJPQVJEfGRhOjkwMDk4'
-    sonarqube.org/project-key: RoadieHQ_sample-service
-    datadoghq.com/tag-name: sample-service
-    datadoghq.com/slo_tag: service:sample-service
-    datadoghq.com/monitor_tags: sample-service
+    # pagerduty.com/service-id: PZDAG59
+    # snyk.io/org-id: a0e0775e-2b17-4e57-8d85-6c8fbe5bc9a0
+    backstage.io/kubernetes-id: cert-manager
+    # travis-ci.com/repo-slug: RoadieHQ/sample-service
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/name=cert-manager'
+    # opsgenie.com/component-selector: sample-service-1
+    # qameta.io/allure-project: value
+    # newrelic.com/dashboard-guid: 'MzcwMjEwN3xWSVp8REFTSEJPQVJEfGRhOjkwMDk4'
+    # sonarqube.org/project-key: RoadieHQ_sample-service
+    # datadoghq.com/tag-name: sample-service
+    # datadoghq.com/slo_tag: service:sample-service
+    # datadoghq.com/monitor_tags: sample-service
     backstage.io/code-coverage: enabled
 spec:
   type: service
