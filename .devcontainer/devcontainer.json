@@ -6,7 +6,7 @@
         "dockerfile": "Dockerfile"
     },
     "features": {
-        "ghcr.io/devcontainers/features/common-utils:2.3.2": {},
+        "ghcr.io/devcontainers/features/common-utils:2.4.1": {},
         "ghcr.io/devcontainers/features/docker-from-docker:1": {},
         "ghcr.io/devcontainers-contrib/features/mkdocs:2": {}
     },
