@@ -78,18 +78,18 @@ export default async function createPlugin(
           },
         },
       }),
-      microsoft: providers.microsoft.create({
-        signIn: {
-          resolver:
-            providers.microsoft.resolvers.emailMatchingUserEntityAnnotation(),
-        },
-      }),
-      google: providers.google.create({
-        signIn: {
-          resolver:
-            providers.google.resolvers.emailLocalPartMatchingUserEntityName(),
-        },
-      }),
+      // microsoft: providers.microsoft.create({
+      //   signIn: {
+      //     resolver:
+      //       providers.microsoft.resolvers.emailMatchingUserEntityAnnotation(),
+      //   },
+      // }),
+      // google: providers.google.create({
+      //   signIn: {
+      //     resolver:
+      //       providers.google.resolvers.emailLocalPartMatchingUserEntityName(),
+      //   },
+      // }),
     },
   });
 }
