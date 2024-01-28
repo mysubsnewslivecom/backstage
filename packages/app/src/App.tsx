@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, Route } from 'react-router-dom';
 import { apiDocsPlugin, ApiExplorerPage } from '@backstage/plugin-api-docs';
+
 import {
   CatalogEntityPage,
   CatalogIndexPage,
@@ -26,8 +27,11 @@ import { apis } from './apis';
 import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
+import { providers } from './identityProviders';
+import * as plugins from './plugins';
+import AlarmIcon from '@material-ui/icons/Alarm';
 
-import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
+import { AlertDisplay, OAuthRequestDialog, SignInPage } from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';
 import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
@@ -35,6 +39,23 @@ import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 
 const app = createApp({
+  plugins: Object.values(plugins),
+  icons: {
+    // Custom icon example
+    alert: AlarmIcon,
+  },
+  components: {
+    SignInPage: props => {
+      return (
+        <SignInPage
+          {...props}
+          providers={['guest', 'custom', ...providers]}
+          title="Select a sign-in method"
+          align="center"
+        />
+      );
+    },
+  },
   apis,
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
