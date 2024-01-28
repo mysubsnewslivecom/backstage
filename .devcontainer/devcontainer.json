@@ -32,7 +32,7 @@
         7007
     ],
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "bash .devcontainer/postCreate.sh",
+    "postCreateCommand": "bash .devcontainer/post_start_command.sh",
     // Configure tool-specific properties.
     "customizations": {
         "vscode": {
