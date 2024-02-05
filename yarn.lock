@@ -2586,38 +2586,6 @@
     isomorphic-form-data "^2.0.0"
     swagger-ui-react "^5.0.0"
 
-"@backstage/plugin-app-backend@^0.3.57":
-  version "0.3.57"
-  resolved "https://registry.yarnpkg.com/@backstage/plugin-app-backend/-/plugin-app-backend-0.3.57.tgz#2ac5cb7aa2c9851a64ba00831d3654991f239259"
-  integrity sha512-G7PHT6SyZXG1PUdBSxFkHgR2QkmX0gj6r74JOsbyYrXH4T4DkHnS6qCmr6paBowVMuzO6T3C5zdFIsXcTozdsw==
-  dependencies:
-    "@backstage/backend-common" "^0.20.1"
-    "@backstage/backend-plugin-api" "^0.6.9"
-    "@backstage/config" "^1.1.1"
-    "@backstage/config-loader" "^1.6.1"
-    "@backstage/plugin-app-node" "^0.1.9"
-    "@backstage/types" "^1.1.1"
-    "@types/express" "^4.17.6"
-    express "^4.17.1"
-    express-promise-router "^4.1.0"
-    fs-extra "10.1.0"
-    globby "^11.0.0"
-    helmet "^6.0.0"
-    knex "^3.0.0"
-    lodash "^4.17.21"
-    luxon "^3.0.0"
-    winston "^3.2.1"
-    yn "^4.0.0"
-
-"@backstage/plugin-app-node@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@backstage/plugin-app-node/-/plugin-app-node-0.1.9.tgz#1a2d6df65d98de2cb86bebde2a2a06046fbe4b1f"
-  integrity sha512-n/1mPYY5HEhGXlpRWIpyNuB8piHm9ch2jPtDecPTv2sKdppHOCc0mwVSEZxGh7ga/NpPrwJASTInhp51MSpETw==
-  dependencies:
-    "@backstage/backend-plugin-api" "^0.6.9"
-    "@types/express" "^4.17.6"
-    express "^4.17.1"
-
 "@backstage/plugin-auth-backend-module-atlassian-provider@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@backstage/plugin-auth-backend-module-atlassian-provider/-/plugin-auth-backend-module-atlassian-provider-0.1.1.tgz#aa4714308ad59b2aed3dc3635b773fbdfc00d425"
@@ -2806,10 +2774,10 @@
     "@backstage/plugin-catalog-node" "^1.6.1"
     "@backstage/plugin-scaffolder-common" "^1.4.5"
 
-"@backstage/plugin-catalog-backend@^1.16.1":
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/@backstage/plugin-catalog-backend/-/plugin-catalog-backend-1.16.1.tgz#9c47fe00ea6f23306315c24324ec18859401c32c"
-  integrity sha512-XCNvlOuozV69SkzQ+m7/td8Ojya1cm6V5tbCbmfgv+c5PivznS/l/iWJXhYJOJ8jQzQ6QVKQfMhr+yrofxjEWA==
+"@backstage/plugin-catalog-backend@^1.16.2":
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-catalog-backend/-/plugin-catalog-backend-1.16.2.tgz#fe4765d02d4cd8e17d3705bee5ecdbb7a03e5018"
+  integrity sha512-aTTztezyaW1y1NaaWIZ++QANn4bCFFl0DUA/4JUW14A6hQJR8F3h+V/XRaM5kkkG8F2arzowwbfTREKiDU8Ezw==
   dependencies:
     "@backstage/backend-common" "^0.20.1"
     "@backstage/backend-openapi-utils" "^0.1.2"
@@ -9561,47 +9529,6 @@ anymatch@^3.0.3, anymatch@~3.1.2:
   dependencies:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
-
-"app@link:packages/app":
-  version "0.0.0"
-  dependencies:
-    "@backstage/app-defaults" "^1.4.7"
-    "@backstage/catalog-model" "^1.4.3"
-    "@backstage/cli" "^0.25.1"
-    "@backstage/core-app-api" "^1.11.3"
-    "@backstage/core-components" "^0.13.10"
-    "@backstage/core-plugin-api" "^1.8.2"
-    "@backstage/integration-react" "^1.1.23"
-    "@backstage/plugin-api-docs" "^0.10.3"
-    "@backstage/plugin-badges" "^0.2.53"
-    "@backstage/plugin-catalog" "^1.16.1"
-    "@backstage/plugin-catalog-common" "^1.0.20"
-    "@backstage/plugin-catalog-graph" "^0.3.3"
-    "@backstage/plugin-catalog-import" "^0.10.5"
-    "@backstage/plugin-catalog-react" "^1.9.3"
-    "@backstage/plugin-github-actions" "^0.6.10"
-    "@backstage/plugin-home" "^0.6.1"
-    "@backstage/plugin-kubernetes" "^0.11.4"
-    "@backstage/plugin-org" "^0.6.19"
-    "@backstage/plugin-permission-react" "^0.4.19"
-    "@backstage/plugin-scaffolder" "^1.17.1"
-    "@backstage/plugin-search" "^1.4.5"
-    "@backstage/plugin-search-react" "^1.7.5"
-    "@backstage/plugin-shortcuts" "^0.3.18"
-    "@backstage/plugin-tech-radar" "^0.6.12"
-    "@backstage/plugin-techdocs" "^1.9.3"
-    "@backstage/plugin-techdocs-module-addons-contrib" "^1.1.4"
-    "@backstage/plugin-techdocs-react" "^1.1.15"
-    "@backstage/plugin-user-settings" "^0.8.0"
-    "@backstage/theme" "^0.5.0"
-    "@material-ui/core" "^4.12.2"
-    "@material-ui/icons" "^4.9.1"
-    history "^5.0.0"
-    react "^18.0.2"
-    react-dom "^18.0.2"
-    react-router "^6.3.0"
-    react-router-dom "^6.3.0"
-    react-use "^17.2.4"
 
 append-field@^1.0.0:
   version "1.0.0"
