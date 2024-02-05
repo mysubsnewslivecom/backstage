@@ -27,6 +27,16 @@ backend:
       # ssl:
       #   ca: # if you have a CA file and want to verify it you can uncomment this section
       #     $file: <file-path>/ca/server.crt
+    # Refer to Tarn docs for default values on PostgreSQL pool configuration - https://github.com/Vincit/tarn.js
+    knexConfig:
+      pool:
+        min: 3
+        max: 12
+        acquireTimeoutMillis: 60000
+        idleTimeoutMillis: 60000
+    pluginDivisionMode: schema # defaults to database, but changing this to schema means plugins will be given their own schema (in the specified/default database)
+
+
 
 catalog:
   # Overrides the default list locations from app-config.yaml as these contain example data.
