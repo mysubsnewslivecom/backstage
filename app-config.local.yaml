@@ -1,17 +1,17 @@
 app:
   title: Scaffolded Backstage App
-  baseUrl: http://${BASE_URL}:3000
+  baseUrl: http://localhost:3000
 organization:
   name: Backstage Portal
 backend:
-  baseUrl: http://${BASE_URL}:7007
+  baseUrl: http://localhost:7007
   listen:
     port: 7007
   auth:
     keys:
       - secret: ${BACKEND_SECRET}
   cors:
-    origin: http://${BASE_URL}:3000
+    origin: http://localhost:3000
     methods:
       - GET
       - HEAD
@@ -51,7 +51,11 @@ techdocs:
     runIn: local
   publisher:
     type: local
+    local:
+      publishDirectory: "/tmp/techdocs"
+
 auth:
+  environment: development
   providers:
     github:
       development:

@@ -1,0 +1,6 @@
+site_name: My Docs
+site_description: An informative description
+
+plugins:
+  - techdocs-core
+  - kroki

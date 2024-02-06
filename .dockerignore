@@ -12,3 +12,4 @@ dist-types
 packages/*/node_modules
 # plugins/*/dist
 plugins/*/node_modules
+!packages/app/dist
