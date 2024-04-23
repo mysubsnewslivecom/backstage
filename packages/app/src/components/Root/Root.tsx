@@ -73,6 +73,7 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarDivider />
         <SidebarScrollWrapper>
           <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
+          <SidebarItem icon={LibraryBooks} to="apache-airflow" text="Apache Airflow" />
         </SidebarScrollWrapper>
       </SidebarGroup>
       <SidebarSpace />

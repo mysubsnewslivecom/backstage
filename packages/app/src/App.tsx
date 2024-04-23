@@ -37,6 +37,7 @@ import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
+import { ApacheAirflowPage } from '@backstage/plugin-apache-airflow';
 
 const app = createApp({
   plugins: Object.values(plugins),
@@ -114,6 +115,7 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route path="/apache-airflow" element={<ApacheAirflowPage />} />
   </FlatRoutes>
 );
 

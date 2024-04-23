@@ -1,17 +1,17 @@
 app:
   title: Scaffolded Backstage App
-  baseUrl: http://localhost:3000
+  baseUrl: ${APP_CONFIG_BASEURL}:3000
 organization:
   name: Backstage Portal
 backend:
-  baseUrl: http://localhost:7007
+  baseUrl: ${APP_CONFIG_BASEURL}:7007
   listen:
     port: 7007
   auth:
     keys:
       - secret: ${BACKEND_SECRET}
   cors:
-    origin: http://localhost:3000
+    origin: ${APP_CONFIG_BASEURL}:3000
     methods:
       - GET
       - HEAD
@@ -25,9 +25,9 @@ backend:
     connection:
       host: ${POSTGRES_HOST}
       port: ${POSTGRES_PORT}
-      user: ${POSTGRES_USER}
+      user: ${BACKSTAGE_USER}
       password: ${POSTGRES_PASSWORD}
-      database: ${POSTGRES_DB}
+      database: ${BACKSTAGE_DB}
       ssl: false
     knexConfig:
       pool:
@@ -76,6 +76,8 @@ catalog:
     - type: file
       target: ../../examples/entities.yaml
     - type: file
+      target: ../../examples/entities.yaml
+    - type: file
       target: ../../examples/template/template.yaml
       rules:
         - allow:
@@ -92,3 +94,12 @@ kubernetes:
   clusterLocatorMethods:
     - type: config
       clusters: []
+
+apacheAirflow:
+  baseUrl: http://airflow-airflow-webserver-1:8080
+
+proxy:
+  "/airflow":
+    target: http://airflow-airflow-webserver-1:8080/api/v1
+    headers:
+      Authorization: Basic YWlyZmxvdzphaXJmbG93

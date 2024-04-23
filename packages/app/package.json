@@ -21,6 +21,7 @@
     "@backstage/core-components": "^0.13.10",
     "@backstage/core-plugin-api": "^1.8.2",
     "@backstage/integration-react": "^1.1.23",
+    "@backstage/plugin-apache-airflow": "^0.2.20",
     "@backstage/plugin-api-docs": "^0.10.3",
     "@backstage/plugin-badges": "^0.2.53",
     "@backstage/plugin-catalog": "^1.16.1",

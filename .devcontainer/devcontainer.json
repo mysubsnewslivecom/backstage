@@ -14,6 +14,7 @@
         "--name=nodejs-backstage",
         "--hostname=nodejs-backstage",
         "--env-file=${localEnv:SECRET_HOME}/.env",
+        "--env-file=.env",
         "--network=alpine-net"
     ],
     "portsAttributes": {

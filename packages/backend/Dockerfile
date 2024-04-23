@@ -25,6 +25,8 @@ RUN apt-get update && \
 
 RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
 
+COPY --chown=node:node ./examples /examples
+
 # From here on we use the least-privileged `node` user to run the backend.
 USER node
 
@@ -57,4 +59,5 @@ COPY --chown=node:node mkdocs.yml docs/ /app/
 
 RUN pip install --upgrade pip && pip install --no-cache-dir mkdocs mkdocs-techdocs-core mkdocs-kroki-plugin
 
-CMD ["node", "packages/backend", "--config", "app-config.local.yaml", "--config", "app-config.production.yaml"]
+
+CMD ["node", "packages/backend", "--config", "app-config.local.yaml"]
