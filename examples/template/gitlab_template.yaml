@@ -1,0 +1,92 @@
+kind: Template
+metadata:
+  name: example-nodejs-template
+  title: Example Node.js Template
+  description: An example template for the scaffolder that creates a simple Node.js service
+spec:
+  owner: user:guest
+  type: service
+
+  parameters:
+    - title: Fill in some steps
+      required:
+        - name
+        - language  # Added language parameter
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Unique name of the component
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        language:
+          title: Programming Language
+          type: string
+          description: The programming language used in the project
+
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - gitlab.com
+
+  steps:
+    - id: ask-language
+      name: Ask Language
+      action: prompt
+      input:
+        promptText: "Select the programming language:"
+        options:
+          - name: JavaScript
+          - name: Python
+          - name: Java
+          - name: TypeScript
+        resultKey: language
+
+    - id: fetch-base
+      name: Fetch Base
+      action: fetch:template
+      input:
+        url: ./content
+        values:
+          name: ${{ parameters.name }}
+          language: ${{ steps['ask-language'].output.language }}  # Use the selected language
+
+    - id: publish
+      name: Publish
+      action: publish:gitlab
+      input:
+        allowedHosts: ['gitlab.com']
+        description: This is ${{ parameters.name }}
+        repoUrl: ${{ parameters.repoUrl }}
+
+    - id: log-to-database
+      name: Log to Database
+      action: log-to-database
+      input:
+        projectName: ${{ parameters.name }}
+        language: ${{ steps['ask-language'].output.language }}
+        repoUrl: ${{ parameters.repoUrl }}
+
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        catalogInfoPath: '/catalog-info.yaml'
+
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps['publish'].output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps['register'].output.entityRef }}
+
