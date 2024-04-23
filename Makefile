@@ -12,7 +12,7 @@ help: ## Show help message
 		| sort \
 		| awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-build: ## Build
+build: ## Build frontend and backend
 	$(LOG) "Build app"
 	cd packages/app ;yarn build --config ../../app-config.local.yaml; cd -
 	$(LOG) "Build backend"
