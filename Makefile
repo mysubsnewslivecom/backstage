@@ -6,7 +6,6 @@ MAKEFLAGS += --silent
 .PHONY: help
 
 help: ## Show help message
-	# @printf "\033[32m\xE2\x9c\x93 usage: make [target]\n\n\033[0m"
 	@printf "\033[32musage: make [target]\n\n\033[0m"
 	@grep -E '^[a-zA-Z0-9._-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 		| sort \
