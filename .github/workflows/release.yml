@@ -1,0 +1,18 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  semantic_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install semantic-release
+        run: npm install semantic-release @semantic-release/gitlab @semantic-release/github @semantic-release/changelog @semantic-release/git @semantic-release/exec @semantic-release/commit-analyzer conventional-changelog-conventionalcommits @semantic-release/gitlab
+      - name: Semantic release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
