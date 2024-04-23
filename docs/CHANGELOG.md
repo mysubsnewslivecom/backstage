@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/mysubsnewslivecom/backstage/compare/1.0.1...1.0.2) (2024-04-23)
+
+
+### Features
+
+* add semantic-release to post_start_commands.sh ([d9de7ff](https://github.com/mysubsnewslivecom/backstage/commit/d9de7ff9a05e841c33f4cc018726c3c0939eea7f))
+
 ## [1.0.1](https://github.com/mysubsnewslivecom/backstage/compare/1.0.0...1.0.1) (2024-04-23)
 
 
